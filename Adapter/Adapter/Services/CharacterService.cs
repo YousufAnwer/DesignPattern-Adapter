@@ -2,6 +2,7 @@
 using Adapter.Const;
 using Adapter.Data;
 using Adapter.Helpers;
+using Adapter.IServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,40 +11,28 @@ using System.Threading.Tasks;
 
 namespace Adapter.Services
 {
-    public enum CharacterSource
-    {
-        file,
-        api
-    }
+   
 
     public class CharacterService
     {
-       
-        public void ListCharacters(CharacterSource source)
+        private readonly ISourceAdapter _characterServiceAdapter;
+
+        /// <summary>
+        /// This is the adapter 
+        /// by this constructer we can use get data from both sources either it is File or any api
+        /// </summary>
+        /// <param name="characterServiceAdapter"></param>
+        public CharacterService(ISourceAdapter characterServiceAdapter)
         {
-            List<Person> people = null;
-            if (source == CharacterSource.file)
-            {
-                Console.WriteLine("From File");
-                people = new List<Person>();
-                LoadPeopleFromJson loadPeopleFromJson = new LoadPeopleFromJson();
-                var obj = loadPeopleFromJson.LoadJson(SystemConstants.FilePath);
-
-                JsonSerializer jsonSerializer = new JsonSerializer();
-                people = jsonSerializer.GetPersonFromJsonString(obj);
-            }
-            else if (source == CharacterSource.api)
-            {
-                Console.WriteLine("From Api");
-                people = new List<Person>();
-                people = DummyPeopleApi.GetPeopleFromApi();
-
-            }
-
+            _characterServiceAdapter = characterServiceAdapter;
+        }
+        public void ListCharacters()
+        {
+            var people = _characterServiceAdapter.GetCharacter();
 
             foreach (var item in people)
             {
-                Console.WriteLine("{0}-{1}", item.Name, item.HairColor);
+                Console.WriteLine("{0} {1}", item.Name, item.FatherName);
 
             }
         }

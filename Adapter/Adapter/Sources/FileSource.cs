@@ -1,21 +1,20 @@
-﻿using Adapter.Const;
-using Adapter.Data;
+﻿using Adapter.Data;
 using Adapter.Helpers;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adapter.Apis
+namespace Adapter.Sources
 {
-    public static class DummyPeopleApi
+    public class FileSource
     {
-        public static List<Person> GetPeopleFromApi()
+        public List<Person> GetFromFile(string fielPath)
         {
+            Console.WriteLine("From File");
             LoadPeopleFromJson loadPeopleFromJson = new LoadPeopleFromJson();
-            var obj = loadPeopleFromJson.LoadJson(SystemConstants.FilePath);
+            var obj = loadPeopleFromJson.LoadJson(fielPath);
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             var people = jsonSerializer.GetPersonFromJsonString(obj);

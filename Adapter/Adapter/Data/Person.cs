@@ -9,6 +9,6 @@ namespace Adapter.Data
     public class Person
     {
         public string Name { get; set; }
-        public string HairColor { get; set; }
+        public string FatherName { get; set; }
     }
 }

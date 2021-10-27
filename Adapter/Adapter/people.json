@@ -2,14 +2,14 @@
 [
   {
     "name": "yousuf",
-    "hairColor": "black"
+    "fatherName": "Anwer"
   },
   {
     "name": "ali",
-    "hairColor": "brown"
+    "fatherName": "ali's father"
   },
   {
     "name": "khan",
-    "hairColor": "purple"
+    "fatherName": "khan's father"
   }
 ]

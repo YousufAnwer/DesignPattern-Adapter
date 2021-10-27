@@ -1,4 +1,7 @@
-﻿using Adapter.Services;
+﻿using Adapter.Apis;
+using Adapter.Const;
+using Adapter.Services;
+using Adapter.Sources;
 using System;
 
 namespace Adapter
@@ -7,8 +10,12 @@ namespace Adapter
     {
         static void Main(string[] args)
         {
-            CharacterService starWarCharacterDisplayService = new CharacterService();
-            starWarCharacterDisplayService.ListCharacters(CharacterSource.file);
+            FileSourceAdapter fileSourceAdapter = new FileSourceAdapter(SystemConstants.FilePath, new FileSource());
+            ApiSourceAdapter apiSourceAdapter = new ApiSourceAdapter(new ApiSource());
+
+
+            CharacterService obj = new CharacterService(fileSourceAdapter);
+            obj.ListCharacters();
         }
     }
 }
