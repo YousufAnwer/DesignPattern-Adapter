@@ -1,8 +1,9 @@
 ﻿using Adapter.Apis;
+using Adapter.Adapters;
 using Adapter.Const;
-using Adapter.Services;
 using Adapter.Sources;
 using System;
+using Adapter.Services;
 
 namespace Adapter
 {
@@ -14,8 +15,10 @@ namespace Adapter
             ApiSourceAdapter apiSourceAdapter = new ApiSourceAdapter(new ApiSource());
 
 
-            CharacterService obj = new CharacterService(fileSourceAdapter);
-            obj.ListCharacters();
+            EmployeeService obj = new EmployeeService(fileSourceAdapter);
+            obj.ListEmployees();
+            obj = new EmployeeService(apiSourceAdapter);
+            obj.ListEmployees();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Adapter.Sources
 {
     public class FileSource
     {
-        public List<Person> GetFromFile(string fielPath)
+        public List<Employee> GetFromFile(string fielPath)
         {
             Console.WriteLine("From File");
             LoadPeopleFromJson loadPeopleFromJson = new LoadPeopleFromJson();

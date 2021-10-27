@@ -1,14 +1,15 @@
 ﻿using Adapter.Apis;
 using Adapter.Data;
-using Adapter.IServices;
+using Adapter.IAdapter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adapter.Services
+namespace Adapter.Adapters
 {
+   
     public class ApiSourceAdapter : ISourceAdapter
     {
         private readonly ApiSource _api;
@@ -18,9 +19,9 @@ namespace Adapter.Services
             _api = api;
         }
 
-        public IEnumerable<Person> GetCharacter()
+        public IEnumerable<Employee> GetCharacter()
         {
-            return _api.GetPeopleFromApi();
+            return _api.GetEmployeesFromApi();
         }
     }
 }

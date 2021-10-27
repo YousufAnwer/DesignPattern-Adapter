@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adapter.IServices
+namespace Adapter.IAdapter
 {
     public interface ISourceAdapter
     {
-        IEnumerable<Person> GetCharacter();
+        IEnumerable<Employee> GetCharacter();
     }
 }

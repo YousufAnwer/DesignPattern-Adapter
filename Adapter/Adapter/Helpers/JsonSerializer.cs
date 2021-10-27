@@ -6,9 +6,9 @@ namespace Adapter.Helpers
 {
     public class JsonSerializer
     {
-        public List<Person> GetPersonFromJsonString(string policyJson)
+        public List<Employee> GetPersonFromJsonString(string policyJson)
         {
-            var obj = JsonConvert.DeserializeObject<List<Person>>(policyJson);
+            var obj = JsonConvert.DeserializeObject<List<Employee>>(policyJson);
             return obj;
 
         }

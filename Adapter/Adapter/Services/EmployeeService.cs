@@ -2,7 +2,7 @@
 using Adapter.Const;
 using Adapter.Data;
 using Adapter.Helpers;
-using Adapter.IServices;
+using Adapter.IAdapter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Adapter.Services
 {
    
 
-    public class CharacterService
+    public class EmployeeService
     {
         private readonly ISourceAdapter _characterServiceAdapter;
 
@@ -22,17 +22,17 @@ namespace Adapter.Services
         /// by this constructer we can use get data from both sources either it is File or any api
         /// </summary>
         /// <param name="characterServiceAdapter"></param>
-        public CharacterService(ISourceAdapter characterServiceAdapter)
+        public EmployeeService(ISourceAdapter characterServiceAdapter)
         {
             _characterServiceAdapter = characterServiceAdapter;
         }
-        public void ListCharacters()
+        public void ListEmployees()
         {
             var people = _characterServiceAdapter.GetCharacter();
 
             foreach (var item in people)
             {
-                Console.WriteLine("{0} {1}", item.Name, item.FatherName);
+                Console.WriteLine("NAME: {0} FATHER_NAME: {1}", item.Name, item.FatherName);
 
             }
         }

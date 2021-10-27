@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Adapter.Data
 {
-    public class Person
+    public class Employee
     {
         public string Name { get; set; }
         public string FatherName { get; set; }

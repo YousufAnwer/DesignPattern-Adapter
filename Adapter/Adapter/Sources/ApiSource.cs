@@ -10,17 +10,28 @@ using System.Threading.Tasks;
 
 namespace Adapter.Apis
 {
+    /// <summary>
+    /// This is dummy Api  source
+    /// TODO:Implement real api 
+    /// </summary>
     public class ApiSource
     {
-        public List<Person> GetPeopleFromApi()
+        List<Employee> employees = new List<Employee>();
+        public ApiSource()
+        {
+            if (employees.Count == 0)
+            {
+                employees.Add(new Employee() { Name = "Sana", FatherName = "Javaid" });
+                employees.Add(new Employee() { Name = "Sara", FatherName = "waheed" });
+                employees.Add(new Employee() { Name = "sania", FatherName = "kareem" });
+            }
+
+        }
+
+        public List<Employee> GetEmployeesFromApi()
         {
             Console.WriteLine("From Api");
-            LoadPeopleFromJson loadPeopleFromJson = new LoadPeopleFromJson();
-            var obj = loadPeopleFromJson.LoadJson(SystemConstants.FilePath);
-
-            JsonSerializer jsonSerializer = new JsonSerializer();
-            var people = jsonSerializer.GetPersonFromJsonString(obj);
-            return people;
+            return employees;
         }
     }
 }

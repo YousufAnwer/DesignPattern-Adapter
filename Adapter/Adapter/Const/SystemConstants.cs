@@ -8,6 +8,6 @@ namespace Adapter.Const
 {
    public static class SystemConstants
     {
-        public static string FilePath = @"E:\Github repos\DesignPattern-Adapter\Adapter\Adapter\people.json";
+        public static string FilePath = @"E:\Github repos\DesignPattern-Adapter\Adapter\Adapter\Employees.json";
     }
 }
