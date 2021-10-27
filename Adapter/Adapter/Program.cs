@@ -8,7 +8,7 @@ namespace Adapter
         static void Main(string[] args)
         {
             CharacterService starWarCharacterDisplayService = new CharacterService();
-            starWarCharacterDisplayService.ListCharacters(CharacterSource.api);
+            starWarCharacterDisplayService.ListCharacters(CharacterSource.file);
         }
     }
 }

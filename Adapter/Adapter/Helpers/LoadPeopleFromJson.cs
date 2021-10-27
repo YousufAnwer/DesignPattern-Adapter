@@ -9,9 +9,9 @@ namespace Adapter.Helpers
 {
     public class LoadPeopleFromJson
     {
-        public string LoadJson()
+        public string LoadJson(string filePath)
         {
-            string peolpe =  File.ReadAllText(@"F:\DesignPatterns\AdapterPattern-Pluralsight\CharacterDisplayService\CharacterDisplayService\people.json");
+            string peolpe =  File.ReadAllText(filePath);
             return peolpe;
         }
     }
