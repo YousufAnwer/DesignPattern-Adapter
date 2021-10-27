@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Adapter.Services;
+using System;
 
 namespace Adapter
 {
@@ -6,7 +7,8 @@ namespace Adapter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CharacterService starWarCharacterDisplayService = new CharacterService();
+            starWarCharacterDisplayService.ListCharacters(CharacterSource.api);
         }
     }
 }
