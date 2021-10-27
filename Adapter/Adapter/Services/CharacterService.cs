@@ -1,4 +1,5 @@
 ﻿using Adapter.Apis;
+using Adapter.Const;
 using Adapter.Data;
 using Adapter.Helpers;
 using System;
@@ -17,7 +18,7 @@ namespace Adapter.Services
 
     public class CharacterService
     {
-       
+
         public void ListCharacters(CharacterSource source)
         {
             List<Person> people = null;
@@ -25,8 +26,9 @@ namespace Adapter.Services
             {
                 Console.WriteLine("From File");
                 people = new List<Person>();
+
                 LoadPeopleFromJson loadPeopleFromJson = new LoadPeopleFromJson();
-                var obj = loadPeopleFromJson.LoadJson();
+                var obj = loadPeopleFromJson.LoadJson(SystemConstants.FilePath);
 
                 JsonSerializer jsonSerializer = new JsonSerializer();
                 people = jsonSerializer.GetPersonFromJsonString(obj);

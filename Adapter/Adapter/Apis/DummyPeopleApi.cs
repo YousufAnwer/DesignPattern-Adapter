@@ -1,4 +1,5 @@
-﻿using Adapter.Data;
+﻿using Adapter.Const;
+using Adapter.Data;
 using Adapter.Helpers;
 using System;
 using System.Collections;
@@ -14,7 +15,7 @@ namespace Adapter.Apis
         public static List<Person> GetPeopleFromApi()
         {
             LoadPeopleFromJson loadPeopleFromJson = new LoadPeopleFromJson();
-            var obj = loadPeopleFromJson.LoadJson();
+            var obj = loadPeopleFromJson.LoadJson(SystemConstants.FilePath);
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             var people = jsonSerializer.GetPersonFromJsonString(obj);
